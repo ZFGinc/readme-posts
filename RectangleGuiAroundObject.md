@@ -1,5 +1,7 @@
 # Динамическая обводка объекта как в Voices Of The Void
 
+<img src="1_gif_demo.gif"/>
+
 В Update делаем рейкаст в направлении камеры. 
 
 ```csharp
