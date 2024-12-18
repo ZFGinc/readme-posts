@@ -1,35 +1,38 @@
 # Динамическая обводка объекта как в Voices Of The Void
 
 В Update делаем рейкаст в направлении камеры. 
-'''csharp
-private void Update()
-{
-    if (Physics.Raycast(CameraTransform.position, CameraTransform.forward, out _hitInfo, _rayDistance))
+
+```csharp
+
+    private void Update()
     {
-        Debug.DrawRay(CameraTransform.position, CameraTransform.forward * _rayDistance, Color.yellow);
-        
-        if (_hitInfo.transform.TryGetComponent(out InteractObject interactObject))
+        if (Physics.Raycast(CameraTransform.position, CameraTransform.forward, out _hitInfo, _rayDistance))
         {
-            if (Distance > _hoverDistance)
+            Debug.DrawRay(CameraTransform.position, CameraTransform.forward * _rayDistance, Color.yellow);
+            
+            if (_hitInfo.transform.TryGetComponent(out InteractObject interactObject))
+            {
+                if (Distance > _hoverDistance)
+                {
+                    HideInteractMenu();
+                    return;
+                }
+    
+                if (_currentInteractObject != null)
+                {
+                    HideInteractMenu();
+                }
+    
+                ShowInteractMenu(interactObject);
+            }
+            else
             {
                 HideInteractMenu();
-                return;
             }
-
-            if (_currentInteractObject != null)
-            {
-                HideInteractMenu();
-            }
-
-            ShowInteractMenu(interactObject);
-        }
-        else
-        {
-            HideInteractMenu();
         }
     }
-}
-'''
+
+```
 
 При попадание луча на объект InteractObject вызывем метод включении интерфейса объекта
 
