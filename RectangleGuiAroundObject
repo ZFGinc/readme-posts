@@ -1,7 +1,7 @@
 # Динамическая обводка объекта как в Voices Of The Void
 
 В Update делаем рейкаст в направлении камеры. 
-```csharp
+'''csharp
 private void Update()
 {
     if (Physics.Raycast(CameraTransform.position, CameraTransform.forward, out _hitInfo, _rayDistance))
@@ -29,7 +29,7 @@ private void Update()
         }
     }
 }
-```
+'''
 
 При попадание луча на объект InteractObject вызывем метод включении интерфейса объекта
 
