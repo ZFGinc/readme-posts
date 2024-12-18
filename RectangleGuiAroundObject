@@ -1,7 +1,7 @@
 # Динамическая обводка объекта как в Voices Of The Void
 
 В Update делаем рейкаст в направлении камеры. 
-``` c#
+```csharp
 private void Update()
 {
     if (Physics.Raycast(CameraTransform.position, CameraTransform.forward, out _hitInfo, _rayDistance))
